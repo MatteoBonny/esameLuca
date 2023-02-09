@@ -10,7 +10,6 @@ macchine = []#array macchine
 coins = []#array coin
 
 
-
 #game loop
 run = True
 while run:
@@ -18,8 +17,6 @@ while run:
   for event in pygame.event.get():
       if event.type == pygame.QUIT:
           run = False
-
-
 
 
   clock.tick(FPS)
@@ -58,20 +55,21 @@ while run:
     if mp.checkCollide(i.rect):
       coins.remove(i)
       score += 1
+    for j in macchine:#remove coin sovrapposto a macchina
+      if i.checkCollide(j.rect):
+        coins.remove(i)
 
 
+  while (run == False) :#gameover
+    screen.fill((255, 255, 255))
+    screen.blit(gameover,(SCREEN_WIDTH / 2 - gameover.get_width() / 2, SCREEN_HEIGHT / 2 - gameover.get_height() / 2))
 
-  #     while (run == False):
-  #         screen.fill((255, 255, 255))
-  #         screen.blit(gameover,(SCREEN_WIDTH / 2 - gameover.get_width() / 2, SCREEN_HEIGHT / 2 - gameover.get_height() / 2))
-  #         print("suca")
-  #
-  #         keys = pygame.key.get_pressed()
-  #         if keys[pygame.K_z]:
-  #           print("ciao")
-  #           run = True
-  #         pygame.display.update()
-  
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_z]:
+     print("ciao")
+     run = True
+     pygame.display.update()
+
   mp.update()#update screen monopattino
 
   scoreText = stile.render("score: " + str(score), True, RED)

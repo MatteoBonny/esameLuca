@@ -18,14 +18,3 @@ class Macchina:
         self.rect.y += self.speed
         screen.blit(self.img, self.rect)
 
-
-
-
-
-
-
-
-
-
-
-

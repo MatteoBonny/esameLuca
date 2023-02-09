@@ -32,11 +32,10 @@ tiles = math.ceil(SCREEN_WIDTH / bg_height) + 1
 #text
 RED = (255,0,0)
 stile = pygame.font.Font("GAME_glm.ttf", 70)
-race = stile.render("race", 10, True, RED)
 gameover = stile.render("'Z' TO RESTAR", True, RED)
 
 scroll -= 4
 
-MacchinaSpawnRate = 100
-CoinSpawnRate = 1
+MacchinaSpawnRate = 80
+CoinSpawnRate = 50
 
