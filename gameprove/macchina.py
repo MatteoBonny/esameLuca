@@ -9,12 +9,16 @@ class Macchina:
         self.rect = self.img.get_rect()
         self.x = random.randint(140, 540 - self.img.get_width())
         self.y = 0 - self.img.get_height()
+        self.rect.x = self.x
+        self.rect.y = self.y
         self.speed = 10
 
 
     def update(self):
-        self.y += self.speed
-        screen.blit(self.img, (self.x, self.y))
+        self.rect.y += self.speed
+        screen.blit(self.img, self.rect)
+
+
 
 
 
