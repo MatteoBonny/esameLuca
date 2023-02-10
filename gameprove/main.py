@@ -63,10 +63,9 @@ def gameLoop(scroll, macchine, coins, score, gameover, start, screen_prova):
             coins.remove(i)
 
 
-      mp.update(score)#update screen monopattino
+      mp.update(score) #update screen monopattino
 
-      scoreText = stile.render("score: " + str(score), True, RED)
-      screen.blit(scoreText, (10, 10))
+      screen.blit(scoreText, (40, 10))
 
       if gameover:
           screen.fill((255, 255, 255))

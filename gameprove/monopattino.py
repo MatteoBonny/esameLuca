@@ -4,7 +4,6 @@ class Monopattino:
 
     def __init__(self):
         self.img = monopattini[0]
-            #pygame.transform.scale(pygame.image.load("mono1.png"), (60, 125))
         self.rect = self.img.get_rect()
         self.x = SCREEN_WIDTH/2 - self.img.get_width()/2
         self.y = SCREEN_HEIGHT - self.img.get_height()
@@ -17,14 +16,18 @@ class Monopattino:
         # Key per movimento
         keys = pygame.key.get_pressed()
 
-        if score >= 0:#sblocca livello successivo
+        if score >= 1:#sblocca livello successivo
             self.img = monopattini[1]
         else:
             self.img = monopattini[0]
-        if score == 0:
+        if score == 1:
             screen.blit(mattia, (130, SCREEN_HEIGHT / 2 - 100))#mattia
-        if score >= 1 and self.img == monopattini[1]:
+        if score >= 2 and self.img == monopattini[1]:
             self.img = pygame.transform.scale(monopattini[2], (100, 50))
+            self.x = 500#!!
+            self.y = 50
+        if score == 2:
+            screen.blit(cri, (90, SCREEN_HEIGHT / 2 - 100))#cri
 
 #devo mettere il rect della nuova immagine in quella vecchia
 

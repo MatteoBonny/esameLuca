@@ -9,7 +9,7 @@ for i in range(3):
     img = pygame.transform.scale(pygame.image.load("mono" + str(i + 1) + ".png"), (50, 105))
     monopattini.append(img)
 
-
+score = 0
 pygame.init()
 
 clock = pygame.time.Clock()
@@ -34,16 +34,18 @@ scroll = bg_height
 tiles = math.ceil(SCREEN_WIDTH / bg_height) + 1
 
 #text
-stile = pygame.font.Font("GAME_glm.ttf", 70)
+stile = pygame.font.Font("font4.ttf", 70)
 RED = (255, 0, 0)
 BLU = (0, 0, 230)
 start = False
+gameover = False
 start1 = stile.render("'S'-START", True, RED)
 game_over = stile.render("'R'-RESTART", True, RED)
 game_over2 = stile.render("'Q'-QUIT", True, RED)
-gameover = False
+scoreText = stile.render("score: " + str(score), True, RED)
 mattia = stile.render("MATTIA!", True, BLU)
 cri = stile.render("CRISTROIA!", True, BLU)
+
 
 
 scroll -= 4
