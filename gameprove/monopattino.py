@@ -1,10 +1,10 @@
-from globale import*
-
+from globale import *
 
 class Monopattino:
 
     def __init__(self):
-        self.img = pygame.transform.scale(pygame.image.load("mono.png"), (60, 125))
+        self.img = monopattini[0]
+            #pygame.transform.scale(pygame.image.load("mono1.png"), (60, 125))
         self.rect = self.img.get_rect()
         self.x = SCREEN_WIDTH/2 - self.img.get_width()/2
         self.y = SCREEN_HEIGHT - self.img.get_height()
@@ -13,9 +13,22 @@ class Monopattino:
         self.speed = 8.5
 
 
-    def update(self):
+    def update(self, score):
         # Key per movimento
         keys = pygame.key.get_pressed()
+
+        if score >= 0:#sblocca livello successivo
+            self.img = monopattini[1]
+        else:
+            self.img = monopattini[0]
+        if score == 0:
+            screen.blit(mattia, (130, SCREEN_HEIGHT / 2 - 100))#mattia
+        if score >= 1 and self.img == monopattini[1]:
+            self.img = pygame.transform.scale(monopattini[2], (100, 50))
+
+#devo mettere il rect della nuova immagine in quella vecchia
+
+
         if keys[pygame.K_a] or keys[pygame.K_LEFT]:
             self.rect.x -= self.speed
         elif keys[pygame.K_d] or keys[pygame.K_RIGHT]:

@@ -4,15 +4,19 @@ import random
 
 from pygame import font
 
+monopattini = []
+for i in range(3):
+    img = pygame.transform.scale(pygame.image.load("mono" + str(i + 1) + ".png"), (50, 105))
+    monopattini.append(img)
+
+
 pygame.init()
 
 clock = pygame.time.Clock()
-FPS = 50
-score = 0
+FPS = 40
 
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 800
-
 
 #create game window
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -30,12 +34,26 @@ scroll = bg_height
 tiles = math.ceil(SCREEN_WIDTH / bg_height) + 1
 
 #text
-RED = (255,0,0)
 stile = pygame.font.Font("GAME_glm.ttf", 70)
-gameover = stile.render("'Z' TO RESTAR", True, RED)
+RED = (255, 0, 0)
+BLU = (0, 0, 230)
+start = False
+start1 = stile.render("'S'-START", True, RED)
+game_over = stile.render("'R'-RESTART", True, RED)
+game_over2 = stile.render("'Q'-QUIT", True, RED)
+gameover = False
+mattia = stile.render("MATTIA!", True, BLU)
+cri = stile.render("CRISTROIA!", True, BLU)
+
 
 scroll -= 4
 
 MacchinaSpawnRate = 80
 CoinSpawnRate = 50
 
+random_macchina = [90, 200, 310, 420]#spwan x macchine
+
+#suono
+main = pygame.mixer.Sound('soundHome.wav').play()
+main.set_volume(.5)
+# main.stop()
