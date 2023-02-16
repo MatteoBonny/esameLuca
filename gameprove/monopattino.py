@@ -16,18 +16,17 @@ class Monopattino:
         # Key per movimento
         keys = pygame.key.get_pressed()
 
-        if score >= 1:#sblocca livello successivo
+        if score >= 10:#sblocca livello successivo
             self.img = monopattini[1]
         else:
             self.img = monopattini[0]
-        if score == 1:
+        if score == 10:
             screen.blit(mattia, (130, SCREEN_HEIGHT / 2 - 100))#mattia
-        if score >= 2 and self.img == monopattini[1]:
-            self.img = pygame.transform.scale(monopattini[2], (100, 50))
-            self.x = 500#!!
-            self.y = 50
-        if score == 2:
-            screen.blit(cri, (90, SCREEN_HEIGHT / 2 - 100))#cri
+        if score >= 20 and self.img == monopattini[1]:
+            self.img = monopattini[2]
+        if score == 20:
+            screen.blit(cri, (200, SCREEN_HEIGHT / 2 - 100))#cri
+
 
 #devo mettere il rect della nuova immagine in quella vecchia
 
@@ -39,7 +38,7 @@ class Monopattino:
         elif keys[pygame.K_w] or keys[pygame.K_UP]:
             self.rect.y -= self.speed
         elif keys[pygame.K_s] or keys[pygame.K_DOWN]:
-            self.rect.y += self.speed
+            self.rect.y += self.speed + 7
 
         # personaggio che non esce
         if self.rect.x < 60:
@@ -52,6 +51,10 @@ class Monopattino:
             self.rect.y = SCREEN_HEIGHT - 150
 
         screen.blit(self.img, self.rect) #print screnn
+
+
+
+
 
 
     def checkCollide(self, elemento2):

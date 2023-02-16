@@ -26,7 +26,6 @@ class Coin:
 
     def update(self):
         self.rect.y += 10
-        print(self.rect.y)
         self.coin.frame_index = (self.coin.frame_index + 1) % len(self.coin.frames)
         screen.blit(self.coin.frames[self.coin.frame_index], self.rect)#print screen
 
