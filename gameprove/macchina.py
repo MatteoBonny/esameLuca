@@ -26,7 +26,8 @@ class Macchina:
     def aumentaVel(self, score):#privata uso solo in update
         if score == 0:
             self.speed = 10
-        elif score >= 10:
+        else:
+            score >= 10
             self.speed = self.speed * 1.02
-        elif score >= 20:
-            self.speed = self.speed * 1.05
+        if score >= 20:
+            self.speed = self.speed * 1.04

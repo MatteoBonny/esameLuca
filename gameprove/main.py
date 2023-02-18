@@ -46,7 +46,6 @@ def gameLoop(scroll, macchine, coins, gameover, start, screen, dia, DiaSpawnRate
         if pygame.time.get_ticks() % DiaSpawnRate == 0:  # spawn dia
             dia.append(Dia())
 
-        print(DiaSpawnRate)
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_e]:
@@ -70,9 +69,9 @@ def gameLoop(scroll, macchine, coins, gameover, start, screen, dia, DiaSpawnRate
                 coins.remove(i)
                 score += 1
 
-            for j in macchine:  # remove coin sovrapposto a macchina
-                if i.checkCollide(j.rect):
-                    coins.remove(i)
+            # for j in macchine:  # remove coin sovrapposto a macchina
+            #     if i.checkCollide(j.rect):
+            #         coins.remove(i)
 
         # diamanti
         for r in dia:
@@ -83,9 +82,9 @@ def gameLoop(scroll, macchine, coins, gameover, start, screen, dia, DiaSpawnRate
                 dia.remove(r)
                 score += 5
 
-            for j in macchine:  # remove dia sovrapposto a macchina
-                if r.checkCollide(j.rect):
-                    dia.remove(r)
+            # for j in macchine:  # remove dia sovrapposto a macchina
+            #     if r.checkCollide(j.rect):
+            #         dia.remove(r) #!!!
 
         mp.update(score)  # update screen monopattino
 
